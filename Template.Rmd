@@ -55,18 +55,21 @@ abstract: |
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5, fig.pos="H", fig.pos = 'H')
-# Note: Include = FALSE implies the code is executed, but not printed in your pdf.
-# warning and message = FALSE implies ugly messages and warnings are removed from your pdf. These should be picked up when you execute the command chunks (code sections below) in your rmd, not printed in your paper!
-
 ```
 
 # Introduction
 
 The literature review aims to provide a better understanding of moving average trend lines in the context of the South African market in particular the JSE Top40 index. The aim of the literature review is the analysis of simple and exponential moving averages and how they are used in generating profits. The literature will explore the profitability of moving average trend lines in other countries and the feasibility of moving average trend lines in the South African environment.
+
 "The Top40 is South Africa's best-known index. It includes the 40 largest companies listed on the JSE. This is the index that most people monitor as an overall benchmark for the local exchange." (JSE, 2017) These 40 companies are the largest in terms of market capitalization which provides a representation of the South African market as a whole. Performing moving average trend line analysis on the Top40 index will generate results representing the profitability of Moving average trend lines in the South African market.
 Moving Average trend lines are a form of technical analysis. Technical analysis involves using the volume and latest stock prices to determine models and technical trading indicators for a given set of data. Moving averages are the most widely known and used by practitioners and financial traders in the markets. (Sobreiro, et al., 2016)
+
 Charles H. Dow believed stock market prices could provide information on the overall market. This lead to Dow theory which was introduced in the late 1800's starting what is known as technical analysis. Technical analysis is used in the financial industry amongst different market participants. The introduction of the Efficient Market Hypothesis proposed by Fama (1970) lead to a decline in the use of technical analysis and the disbelief that profits could be generated from technical analysis. (Sobreiro, et al., 2016)It was only in 1992 when a paper done by William Brock, Josef Lakonishok and Blake LeBaron provided significant evidence in justifying the use of technical analysis. (Fong, W.M & Yong, L.H.M, 2005). The paper lead to the resurgence in testing technical analysis in different markets and determining whether it is actually profitable.
 There is currently no research on moving average trend lines in the Top40. A paper was done on the 5 emerging national economies of Brazil, Russia, India, China and South Africa, (BRICS) The paper analyzed South Africa but did not cover the South African market extensively. The South African stock market is described in a paper done in 2003 as not weak form market efficient suggesting profitable opportunities [@appiah2003return]. The lack of information involving moving average trend lines in the South African market and the potential for profits emphasizes the importance of the research question.
+
+```{r}
+
+```
 
 
 Moving averages provide a simple method to determining when stocks should be bought or sold. The main strategy of moving averages is to determine a trend in share prices. This trend is then plotted in the form of a moving average trend line. The short/sell signal occurs when the price is below the moving average and long/buy signal occurs when the price is above the moving average. A moving average trend line is profitable if it provides excess returns when compared to the buy-and-hold strategy in the JSE Top40 index. The buy-and-hold strategy is just the returns you get from investing in a specific index without active management of buying and selling in the JSE market. (Move to methodology)
