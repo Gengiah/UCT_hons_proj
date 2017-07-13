@@ -1,0 +1,139 @@
+---
+# IMPORTANT: Change settings here, but DO NOT change the spacing. 
+# Remove comments and add values where applicable. 
+# The descriptions below should be self-explanatory
+
+title: "Profitability of moving average trends in the Top40"
+#subtitle: "This will appear as Right Header"
+
+documentclass: "elsarticle"
+
+# Comment: ----- Follow this pattern for up to 5 authors
+Author1: "Nico Katzke"  # First Author
+Ref1: "Bureau for Economic Research, Stellenbosch University, South Africa" # First Author's Affiliation
+Email1: "nfkatzke\\@gmail.com" # First Author's Email address
+
+Author2: "John Smith"
+Ref2: "Some other Institution, Cape Town, South Africa"
+Email2: "John Smith\\@gmail.com"
+CommonAffiliation_12: TRUE # If Author 1 and 2 have a common affiliation. Works with _13, _23, etc.
+
+Author3: "John Doe"
+Email3: "JohnSmith\\@gmail.com"
+
+CorrespAuthor_1: TRUE  # If corresponding author is author 3, e.g., use CorrespAuthor_3: TRUE
+
+keywords: "Multivariate GARCH \\sep Kalman Filter \\sep Copula" # Use \\sep to separate
+JELCodes: "L250 \\sep L100"
+
+# Comment: ----- Manage headers and footers:
+#BottomLFooter: $Title$
+#BottomCFooter:
+#TopLHeader: \leftmark # Adds section name at topleft. Remove comment to add it.
+BottomRFooter: "\\footnotesize Page \\thepage\\" # Add a '#' before this line to remove footer.
+addtoprule: TRUE
+addfootrule: TRUE               # Use if footers added. Add '#' to remove line.
+bibliography: Tex/ref.bib       # Do not edit: Keep this naming convention and location.
+RemovePreprintSubmittedTo: FALSE  # Removes the 'preprint submitted to...' at bottom of titlepage
+Journal: "Journal of Finance"   # Journal that the paper will be submitting to, if above parameter is set to TRUE.
+toc: no                         # Add a table of contents
+numbersections: yes             # Should sections (and thus figures and tables) be numbered?
+fontsize: 12pt                  # Set fontsize
+linestretch: 1.5                # Set distance between lines.
+link-citations: TRUE            # This creates dynamic links to the papers in reference list.
+output:
+  pdf_document:
+    keep_tex: TRUE
+    template: Tex/TexDefault.txt
+    fig_width: 3.5 # Adjust default figure sizes. This can also be done in the chunks of the text.
+    fig_height: 3.5
+    include:
+      in_header: Tex/packages.txt # Reference file with extra packages
+abstract: |
+  Abstract to be written here. The abstract should not be too long and should provide the reader with a good understanding what you are writing about. Academic papers are not like novels where you keep the reader in suspense. To be effective in getting others to read your paper, be as open and concise about your findings here as possible. Ideally, upon reading your abstract, the reader should feel he / she must read your paper in entirety.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5, fig.pos="H", fig.pos = 'H')
+# Note: Include = FALSE implies the code is executed, but not printed in your pdf.
+# warning and message = FALSE implies ugly messages and warnings are removed from your pdf. These should be picked up when you execute the command chunks (code sections below) in your rmd, not printed in your paper!
+
+```
+
+# Introduction
+
+The literature review aims to provide a better understanding of moving average trend lines in the context of the South African market in particular the JSE Top40 index. The aim of the literature review is the analysis of simple and exponential moving averages and how they are used in generating profits. The literature will explore the profitability of moving average trend lines in other countries and the feasibility of moving average trend lines in the South African environment.
+"The Top40 is South Africa's best-known index. It includes the 40 largest companies listed on the JSE. This is the index that most people monitor as an overall benchmark for the local exchange." (JSE, 2017) These 40 companies are the largest in terms of market capitalization which provides a representation of the South African market as a whole. Performing moving average trend line analysis on the Top40 index will generate results representing the profitability of Moving average trend lines in the South African market.
+Moving Average trend lines are a form of technical analysis. Technical analysis involves using the volume and latest stock prices to determine models and technical trading indicators for a given set of data. Moving averages are the most widely known and used by practitioners and financial traders in the markets. (Sobreiro, et al., 2016)
+Charles H. Dow believed stock market prices could provide information on the overall market. This lead to Dow theory which was introduced in the late 1800's starting what is known as technical analysis. Technical analysis is used in the financial industry amongst different market participants. The introduction of the Efficient Market Hypothesis proposed by Fama (1970) lead to a decline in the use of technical analysis and the disbelief that profits could be generated from technical analysis. (Sobreiro, et al., 2016)It was only in 1992 when a paper done by William Brock, Josef Lakonishok and Blake LeBaron provided significant evidence in justifying the use of technical analysis. (Fong, W.M & Yong, L.H.M, 2005). The paper lead to the resurgence in testing technical analysis in different markets and determining whether it is actually profitable.
+There is currently no research on moving average trend lines in the Top40. A paper was done on the 5 emerging national economies of Brazil, Russia, India, China and South Africa, (BRICS) The paper analyzed South Africa but did not cover the South African market extensively. The South African stock market is described in a paper done in 2003 as not weak form market efficient suggesting profitable opportunities [@appiah2003return]. The lack of information involving moving average trend lines in the South African market and the potential for profits emphasizes the importance of the research question.
+
+
+Moving averages provide a simple method to determining when stocks should be bought or sold. The main strategy of moving averages is to determine a trend in share prices. This trend is then plotted in the form of a moving average trend line. The short/sell signal occurs when the price is below the moving average and long/buy signal occurs when the price is above the moving average. A moving average trend line is profitable if it provides excess returns when compared to the buy-and-hold strategy in the JSE Top40 index. The buy-and-hold strategy is just the returns you get from investing in a specific index without active management of buying and selling in the JSE market. (Move to methodology)
+
+# The Efficient Market Hypothesis
+
+The paper rewritten by (Fama,1991) refers to the Efficient Market Hypothesis as the asset prices fully reflecting all available information. The Efficient Market Hypothesis can be split into 3 forms based on the definition of the information:
+	Weak Form EMH: Prices reflect all information in the past price history
+	Semi-Strong Form EMH: Prices reflect all publicly available information
+	Strong Form EMH: Prices reflect all information, public and private. (Park & Irwin, 2004)
+If all information is available in the prices, then additional information such as moving averages shouldn't provide any financial profitability. The Weak form efficient market hypothesis states that there is no justification for technical analysis.  This implies that markets are efficient and arbitrage should not be attainable through technical analysis. (Fama, 1991). The weak form of the efficient market hypothesis has been the paradigm in describing the behaviour of prices in speculative market. A paper done in 1988 proved the non-existence of random walks in the stock market using the NYSE-AMEX index. (Lo & MacKinlay, 1988) 
+The Efficient Market Hypothesis is one of the main reasons why individuals do not regard technical analysis as useful and has lead market participants to avoid technical analysis. Technical analysis is still used by market participants. Moving averages might not provide exact profits but they do provide other information about the data.
+"Moving Average are a type of smoothing method for reducing, or cancelling random variation inherent in data taken over time. When applied properly, this technique reveals more clearly the underlying trend, seasonal and cyclic approach components in the data." (Okkels, 2014) This definition implies that moving average can still be used in understanding the direction of the market even if it cannot be used directly in beating the buy-and-hold strategy.
+
+# Methodology
+
+The 2 main Moving Averages discussed are simple moving average and exponential moving average. Simple moving averages is the sum of latest stock prices divided by the number of stock prices:
+Simple moving average calculation
+
+[MATHHHH]
+
+Where:
+$P_t$ is the closing price of the stock in t period.
+$n$ is the relative position of the current period observed; and
+k is the number of periods included un the SMA calculation;
+
+Simple averages are the easiest to interpret while exponential moving averages provide stronger predictive ability in market prices. Exponential moving averages focus on the most recent values and thus are similar to weighted moving averages.
+
+Exponential moving average calculation
+where:
+[MATH] is the closing price of the stock in the previous period.
+[MATH] is the EMA in the previous period.
+n is the relative position of the current period observed; and
+k is the number of periods included in the EMA calculation;
+
+There are 2 other moving averages which are not as common as the simple and exponential moving average. These are weighted and adaptive moving average. Weighted moving averages are similar to exponential moving averages but place specific importance on different stock prices. Kaufman adaptive moving average is a moving average that accounts for volatility. (Sobreiro, et al., 2016)The literature review will focus mainly on simple and exponential moving average trend lines.
+
+The simple and exponential moving averages are used in different ways to predict the buy and sell signals in the price history. Exponential moving average gives more weight to recent stock prices while simple provides equal weighting for all stock prices in a given time period. (Okkels, 2014). One method is the comparison of short and long run simple moving averages. Short and long run moving averages refers to the specific time frame in which the moving average is calculated. In a paper done on South Asian markets, short is referred to as 10 or 20 day moving averages, while long run is referred to as 50 or 200 day moving averages. (Ming-Ming & Siok-Hwa, 2006)
+
+Moving Average Convergence Divergence is the formal name for comparing a short and long run exponential moving average. The most common time periods for the short moving average is 9 days while a long moving average has a time period of 26 days. (Okkels, 2014)
+
+Moving average techniques require buy and sell signals after comparing short and long run simple or exponential moving averages. (Gunasekerage & Power, 2001)). The paper discusses 2 moving average techniques which are: Variable length moving average and fixed length moving average. The variable length moving average rule generates a buy-and-sell signal every day.  Variable length moving average signals to buy when short moving average is above the long moving average by an amount larger than the band. (Brock, et al., 1992)The band is some percentage threshold such that the difference in short and long run Moving average is still significant. Brock uses a threshold of 1%. The variable length moving average will change once the short moving average exceeds the long moving average by the 1% threshold. The crossing over of Moving averages is referred to as the dual moving average crossover. (Ming-Ming & Siok-Hwa, 2006). The fixed length moving average holds a moving average for a fixed period of time. This is a 10-day holding period in Brock (1992) and Ming-Ming, L & Siok-Hwa, L (2005). During this 10-day period signals do not change the fixed length moving average till the end of the holding period, where cumulative profits are calculated. Fixed length moving average focuses on crossing over of long and short moving averages. A sell (buy) signal occurs when the short (long) moving average crosses the long (short) moving average from above. 
+
+The daily closing price index is used as the short term moving average in another paper. (Ming-Ming & Siok-Hwa, 2006) The long term moving average varies between the time period of 20, 60,120,180,240 days. The short-term moving average is compared to the long term moving average in calculating profits and the band threshold is 1%.   Multiple long moving averages are compared to the 1-day short moving average. The best strategy was using a 60-day long moving average. The results indicated variable moving averages were more profitable than fixed moving average and both provided significant returns.
+
+A Study done on the South Asian stock market used 9 different moving average rules. (1,50,0),(1,100,0), (1,150,0),(1,200,0),(2,100,0),(2,150,0),(5,200,0) and (1,50,0). The 1st number in the bracket represents the short length moving average, the 2nd number in the bracket represents the long moving average and the 3rd number indicated the band threshold percentage. (Gunasekerage & Power, 2001)The study was compared to the study done by Brock et al (1992). The study analysed the log returns of prices in the index as it is easier to interpret and calculate mean returns.
+
+The Methodology that should be incorporated in answering the research question should be the application of dual moving average crossover and moving average convergence divergence. This allows for short and long term moving averages while comparing simple and exponential moving averages. The literature reviewed suggests using a short moving average of either 1 or 10 days and long moving average of either 50,100 or 200 days. The band threshold used in all studies was either 1% or 0. The time frame that could be used is  2001-2016.
+
+# Empirical results 
+
+The research performed on the South African market showed positive results for exponential moving averages and negative results for simple moving average. This suggest exponential moving average might be more useful in analysing the South African Market. (Sobreiro, et al., 2016)
+
+Given that there were no other studies done specifically on the South African market we can look at results from all over the world focusing mainly on emerging markets which are similar to the South African context. (Sobreiro, et al., 2016) 
+
+Brock (1992) analysed fixed and variable moving averages in the Dow Jones industrial Average Index using 90 years of data. (1897-1986). Both the fixed and variable moving averages provided excess returns compared to the buy-and-hold strategy. These returns did not include transaction costs. (Bessembinder & Chan, 1998)A study done on 6 equity indices in Asia provided results indicating strong predictive power of moving averages in Malaysian, Thailand and Taiwan stock markets. Another study done on the Financial Times industrial Ordinary Index did not provide excess returns after a transaction cost of 1% was considered. The problem with Brocks excess returns from trading rules is that transaction costs are not included, thus are not sufficient in proving that technical trading is profitable. (Park and Irwin, 2007)
+
+The paper written on South Asian Markets also provided results confirming the profitability of moving average trend lines. (Bessembinder & Chan, 1998)The study obtained stock price index data from (1975-1989). The returns are computed as changes in log price indices. The VLMA provided more buy and sell signals while the FLMA generated more profit. The transaction costs were reported as break even costs in order to calculate the highest percentage of profits available for transaction costs. The average transaction cost is 1.57% for the whole sample. If the transaction cost was 1% then moving averages would have been profitable.
+
+The empirical results from past literature provides evidence in moving average trend lines being profitable. The study will prove or disprove if this is the case in the JSE Top40.
+
+# Conclusion
+
+The literature reviewed is inconclusive on the exact impact of Moving average trend lines and if it can beat the buy-and-hold strategy. The empirical results provide evidence in both proving and disproving the profitability of moving average trend lines after considering transaction costs. There are a few methods to determining the predictive power of moving averages trend lines. The most common is comparing short and long run fixed and variable moving averages. The most common transaction cost viewed in most papers was 1% and a band threshold of 1%. The literature reviewed has provided a guideline in testing if moving average trend lines are profitable in the JSE Top40.
+
+\newpage
+
+# References
+
+
