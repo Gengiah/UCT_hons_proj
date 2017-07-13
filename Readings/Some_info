@@ -1,0 +1,5 @@
+Quandl - download data 
+R api - read documentation
+
+Quantmod - package
+getSymbols("JSE:WHL", source = "google")
