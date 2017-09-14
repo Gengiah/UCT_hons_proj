@@ -90,7 +90,7 @@ The total transaction costs = 0.855659%.[@FNB]
 
 # Methodology
 
-The 2 main Moving Averages discussed are simple moving average and exponential moving average. Simple moving averages is the sum of latest stock prices divided by the number of stock prices:
+The 2 main Moving Averages used in this reasearch paper are simple moving average and exponential moving average. Simple moving averages is the sum of latest stock prices divided by the number of stock prices:
 Simple moving average calculation
 
 $$SMA_n= \frac{1}{k} \times \sum_{t = n-k +1}^{n}P_t$$
@@ -144,16 +144,30 @@ The Best Simple Moving Average strategy for the JSE Top40 with a short period of
 
 The Best Simple Moving Average strategy for the JSE IND with a short period of 5 days and a long period of 355 days exceeded the buy-and-hold strategy by 0.0054. The profit is rather small but if leveraged correctly could be worth investing in.
 The Best Simple Moving Average strategy for the JSE FIN with a short period of 30 days and a long period of 205 days did outperform the buy-and-hold strategy by 0.0462. The profit is considerably high and is worth investing in.
-All the Best Exponential Moving Average strategies in the 3 JSE indices outperformed the buy-and-hold strategy. The Exponential Moving average captures shorter trend moves as it generally has a trend line closer to the closing prices due to the use of most recent prices. Given the chart series graphs its seen that there was minimal change in prices throughout the in-sample period resulting in the exponential moving average matching prices quite accurately causing more profit.
-The out-of-sample period starts from 1st April 2014 and ends on the 31st of March 2017. Observing the prices using the chart series suggests that prices are more volatile in the out-of-sample period.
+All the Best Exponential Moving Average strategies in the 3 JSE indices outperformed the buy-and-hold strategy. The Exponential Moving average captures shorter trend moves as it generally has a trend line closer to the closing prices due to the use of most recent prices. 
 
-![caption](Top40EMA.png)
-Chartseries to show Simple Moving Averages in the JSE top40
+![Chartseries to show Simple Moving Averages in the JSE top40](smatop40.png)
 
-<!-- want to add more empirical results and a final table to show the best strategies tested out-of-sample. I still have a lot of additional analysis to perform on all the different statistics--> 
+![Chartseries to show Simple Moving Averages in the JSE IND](smaIND.png)
+
+
+![Chartseries to show Exponential Moving Averages in the JSE FIN](EMAFIN.png)
+
+The Red Line indicates the long moving average in each indice
+
+Given the chart series graphs its seen that there was minimal change in prices throughout the in-sample period resulting in the exponential moving average matching prices quite accurately causing more profit.
+
+<!-- want to add more empirical results.I still have a lot of additional analysis to perform on all the different statistics--> 
 
 ![Table to show the top strategy returns and standard deviations compared to the buy and hold returns and standard deviation and the number of buy and sell trades out-of-sample.](out-of-sample results.png)
-#Conclusion
+
+The out-of-sample period starts from 1st April 2014 and ends on the 31st of March 2017. Observing the prices using the chart series suggests that prices are more volatile in the out-of-sample period.
+All the strategies failed to beat the buy and hold strategy out-the-sample.
+This could either be due to Moving averages being unable to beat the buy-and-hold strategy or the increased volatility in the out-of-sample period
+
+\newpage
+
+# Conclusion
 
 The best strategies out of sample all failed to beat the buy-and-hold strategy. This follows the weak form Efficient Market Hypothesis. The in-sample results only beat the buy and hold strategy as the moving averages were over optimized to the curves. Moving Averages are useful in determining trends but cannot be utilized to achieve additional profits. An issue that occurred could be the mismatch between out-of-sample and in-sample strategies having different time lengths. In-sample only had 3 years while out of sample had 8 years. This is due to the fact that only a limited amount of data is available.
 
