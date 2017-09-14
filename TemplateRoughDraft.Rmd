@@ -1,0 +1,164 @@
+---
+# IMPORTANT: Change settings here, but DO NOT change the spacing. 
+# Remove comments and add values where applicable. 
+# The descriptions below should be self-explanatory
+title: "The profitability of moving averages in the South African market"
+#subtitle: "This will appear as Right Header"
+Author: "Ashley Gengiah"  # First Author
+Student: "GNGASH001"
+bibliography: Tex/ref.bib       # Do not edit: Keep this naming convention and location.
+output:
+  pdf_document:
+    keep_tex: TRUE
+    template: Tex/TexDefault.txt
+    fig_width: 5 # Adjust default figure sizes. This can also be done in the chunks of the text
+    fig_height: 4
+abstract: |
+  Moving Averages in the South African market are profitable. The Research Paper aims to prove this statement by using simple and exponential Moving Averages on 3 different Johannesburg Stock Exchange Indices. The best strategies from simple and exponential moving averages were tested in-sample and out-of-sample. The results disagreed with the initial hypothesis and Moving averages were not profitable. The results could change if equal lengths of in and out of sample periods were used.
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5, fig.pos="H", fig.pos = 'H')
+```
+
+# Introduction
+
+The Research Paper aims to prove the profitability of moving averages in the South African Market. Given South Africa’s growing global presence, research on the profitability of moving averages in the South African Market could be utilized for future profits. The Research Project will focus on the JSE top40, The JSE IND and the JSE FINI. The Research project will focus on using Simple and Exponential moving averages to determine profitability of these 3 sectors and transaction costs will be included.
+
+The JSE top40 is South Africa’s best known index. It includes the 40 largest companies listed on the JSE. This is the index that most people monitor as an overall benchmark for the South African exchange. These 40 companies are the largest in terms of market capitalization which provides a representation of the South African market as a whole. Performing moving average trend line analysis on the Top40 index will generate results representing the profitability of moving average in the whole South African market. The JSE IND is the top 25 industrial companies index in terms of market capitalization and the JSE FINI is the top 15 financial companies index in the JSE in terms of market capitalization. The industrial and financial sector are the 2 biggest sectors in South Africa, thus testing profitability for these 2 sectors individually could be profitable. 
+Moving Average trend lines are a form of technical analysis. 
+
+Technical analysis involves using the volume and latest stock prices to determine models and technical trading indicators for a given set of data. Moving averages are the most widely known and used by practitioners and financial traders in the markets. [@sobreiro2016profitability]
+A paper was done on the 5 emerging national economies of Brazil, Russia, India, China and South Africa, (BRICS).[@sobreiro2016profitability] The paper analyzed South Africa but did not cover the South African market extensively. The South African stock market is described in a paper done in 2003 as not weak form market efficient suggesting profitable opportunities. [@appiah2003return] The lack of information involving moving average trend lines in the South African market and the potential for profits emphasizes the importance of the research question.
+
+
+```{r}
+
+```
+
+
+#Background
+
+## The beginning of technical analysis
+
+Technical analysis was first introduced by Charles H. Dow. Charles H. Dow believed stock market prices could provide information on the overall market. This lead to Dow theory which was introduced in the late 1800’s starting what is known as technical analysis.[@bessembinder1998market] Technical analysis is used in the financial industry amongst different market participants. The introduction of the Efficient Market Hypothesis proposed by Fama [-@malkiel1970efficient] lead to a decline in the use of technical analysis and the disbelief that profits could be generated from technical analysis. [@sobreiro2016profitability] It was only in 1992 when a paper done by William Brock, Josef Lakonishok and Blake LeBaron provided significant evidence in justifying the use of technical analysis. [@fong2005chasing]. The paper lead to the resurgence in testing technical analysis in different markets and determining whether it is actually profitable.
+
+## The Efficient Market Hypothesis
+
+The paper rewritten by [@fama1991efficient] refers to the Efficient Market Hypothesis as the asset prices fully reflecting all available information. The Efficient Market Hypothesis can be split into 3 forms based on the definition of the information:
+
+1.	Weak Form EMH: Prices reflect all information in the past price history
+
+2.	Semi-Strong Form EMH: Prices reflect all publicly available information
+
+3.	Strong Form EMH: Prices reflect all information, public and private. 
+[@park2007we]
+
+If all information is available in the prices, then additional information such as moving averages shouldn’t provide any financial profitability. The Weak form efficient market hypothesis states that there is no justification for technical analysis.  This implies that markets are efficient and arbitrage should not be attainable through technical analysis. [@fama1991efficient]. 
+The weak form of the efficient market hypothesis has been the paradigm in describing the behaviour of prices in speculative market. A paper done in 1988 proved the non-existence of random walks in the stock market using the NYSE-AMEX index. [@lo1988stock]
+The Efficient Market Hypothesis is one of the main reasons why individuals do not regard technical analysis as useful and has lead market participants to avoid technical analysis. Technical analysis is still used by market participants. Moving averages might not provide exact profits but they do provide other information about the data.
+
+## Moving Averages
+
+“Moving Average are a type of smoothing method for reducing, or cancelling random variation inherent in data taken over time. When applied properly, this technique reveals more clearly the underlying trend, seasonal and cyclic approach components in the data.” [@okkelsfinancial] This definition implies that moving average can still be used in understanding the direction of the market even if it cannot be used directly in beating the buy-and-hold strategy.
+The simple and exponential moving averages are the most frequently used moving averages and are used in different ways to predict the buy and sell signals in the price history. Exponential moving average gives more weight to recent stock prices while simple provides equal weighting for all stock prices in a given time period. [@okkelsfinancial]. One method is the comparison of short and long run simple moving averages. Short and long run moving averages refers to the specific time frame in which the moving average is calculated. In a paper done on South Asian markets, short is referred to as 10, 20 or 50 day moving averages, while long run is referred to as 50,100 or 200 day moving averages. [@ming2006profitability]
+Moving average techniques require buy and sell signals after comparing short and long run simple or exponential moving averages. [@gunasekarage2001profitability]. The paper discusses 2 moving average techniques which are: Variable length moving average and fixed length moving average. The variable length moving average rule generates a buy-and-sell signal every day.  Variable length moving average signals to buy when short moving average is above the long moving average. The crossing over of Moving averages is referred to as the dual moving average crossover. [@ming2006profitability]. The fixed length moving average holds a moving average for a fixed period of time. This is a 10-day holding period in Brock [-@brock1992simple] and Ming-Ming, L & Siok-Hwa, L [-@ming2006profitability]. During this 10-day period signals do not change the fixed length moving average till the end of the holding period, where cumulative profits are calculated. Fixed length moving average focuses on crossing over of long and short moving averages. A sell (buy) signal occurs when the short (long) moving average crosses the long (short) moving average from above. 
+
+## Empirical results 
+
+Brock [-@brock1992simple] analysed fixed and variable moving averages in the Dow Jones industrial Average Index using 90 years of data. (1897-1986). Both the fixed and variable moving averages provided excess returns compared to the buy-and-hold strategy. These returns did not include transaction costs. 
+
+
+The study done on 6 equity indices in Asia provided results indicating strong predictive power of moving averages in Malaysian, Thailand and Taiwan stock markets. The paper's results confirm the profitability of moving average trend lines.[@bessembinder1998market] The study obtained stock price index data from (1975-1989). The returns are computed as changes in log price indices thus preventing autocorrelation. The transaction costs were reported as break even costs in order to calculate the highest percentage of profits available for transaction costs. The average transaction cost is 1.57% for the whole sample. If the transaction cost were 1% then moving averages would have been profitable.
+
+
+The study done by Ming-Ming & Siok-Hwa used the daily closing price index is used as the short term moving average. [-@ming2006profitability] The long term moving average varies between the time period of 20, 60,120,180,240 days.  Multiple long moving averages are compared to the 1-day short moving average. The results concluded that the best strategy was using a 60-day long moving average and the 1-day short moving average. The results indicated variable moving averages were more profitable than fixed moving average and both provided significant returns.
+
+#Data
+
+The data chosen for the study involves using 2 sets of closing prices which range from the 2006 to 2017. The 1st set of closing prices are over an 8-year period from 1st of May, 2006 to 31st of April 2014  The out-of-sample test will occur between the 1st of May 2014 to 31st of April 2017. All data is taken from Google Finance and focuses on the JSE TOP40, JSE Top25 industrial companies and the JSE top15 financial companies
+
+The Transaction cost used consists of 4 aspects: 
+Brockerage fee= 0.6%
+
+Investor protection levy = 0.0002% 
+
+STRATE fee= 0.005459% 
+
+Security Transfer Tax=0.25%
+
+The total transaction costs = 0.855659%.[@FNB]
+
+# Methodology
+
+The 2 main Moving Averages discussed are simple moving average and exponential moving average. Simple moving averages is the sum of latest stock prices divided by the number of stock prices:
+Simple moving average calculation
+
+$$SMA_n= \frac{1}{k} \times \sum_{t = n-k +1}^{n}P_t$$
+
+
+Where:
+$P_t$ is the closing price of the stock in t period.  
+$n$ is the relative position of the current period observed;   and
+$k$ is the number of periods included un the SMA calculation;
+
+Simple averages are the easiest to interpret while exponential moving averages provide stronger predictive ability in market prices. Exponential moving averages focus on the most recent values and thus are similar to weighted moving averages.
+
+Exponential moving average calculation
+
+$$EMA_n =\Bigg(\frac{2}{k+1}\Bigg) \times P_{t-1} + \Bigg(1- \Bigg(\frac{2}{k+1}\Bigg)\Bigg) \times EMA_{n-1}$$
+where:
+${P_{t-1}}$ is the closing price of the stock in the previous period.  
+$EMA_{n-1}$ is the EMA in the previous period.  
+$n$ is the relative position of the current period observed; 
+and
+
+$k$ is the number of periods included in the EMA calculation;
+
+The Research project will only focus on simple and exponential moving average trend lines. Moving Average Convergence Divergence is the formal name for comparing a short and long run exponential moving average. 
+The simple and exponential moving averages were calculated using the TTR package in R.  
+The Methodology that will be incorporated in answering the research question is the application of dual moving average crossover and moving average convergence divergence. This allows for short and long term moving averages while comparing simple and exponential moving averages. The literature reviewed suggests using a short moving average of either 5,10,30 or 50 days and long moving average of either 50,100 or 200 days. The time frame that will be used is 2006-2017.	
+
+
+
+The exact method for comparing the different moving averages to the buy-and-hold strategy involves 5 steps:
+Step: 1. Generate trade signals over the period. This done by comparing short and long run moving averages.  
+Step: 2. Use the signals generated to calculate the holding period.  
+Step: 3. Compare the returns of the moving average to the buy-and-hold strategy   
+Step 4: Run a number of different long and short period combinations   
+Step 5: Choose the best combination of short and long simple and exponential moving average for the JSE Top40, JSE IND and the JSE FIN that provide the greatest return and compare them to the buy-and-hold strategy.
+
+<!--want to include a few pictures for the methodology and discuss-->
+
+The package quantmod is used to collect the data from google finance and convert prices to log returns.
+To avoid autocorrelation daily log returns were used to calculate profits rather than the actual closing prices.  A sequence was run to generate different values for the short and long periods. The short periods ranged from 5 to 55 in steps of 25 while the long periods ranged from 55 to 405 in steps of 50.
+Back testing was used in the training period to calculate the optimal strategy for each JSE index using simple and exponential moving averages. The Best strategy for each moving average will be tested out-of-sample to ensure the results were not over optimized to match the specific training period.This prevents inaccurate results.
+
+# Empirical results
+
+The empirical results for the best strategies in the in-sample period are plotted in the table below.
+
+![Table to show the top strategy returns and standard deviations compared to the buy and hold returns and standard deviation and the number of buy and sell trades.
+](In-sample.jpg )
+
+The Best Simple Moving Average strategy for the JSE Top40 with a short period of 30 days and a long period of 355 days did not beat the buy-and-hold strategy. This could be accounted for by the 16 trades that occurred. The transaction costs overall could have resulted in less profit than the buy-and-hold strategy.
+
+The Best Simple Moving Average strategy for the JSE IND with a short period of 5 days and a long period of 355 days exceeded the buy-and-hold strategy by 0.0054. The profit is rather small but if leveraged correctly could be worth investing in.
+The Best Simple Moving Average strategy for the JSE FIN with a short period of 30 days and a long period of 205 days did outperform the buy-and-hold strategy by 0.0462. The profit is considerably high and is worth investing in.
+All the Best Exponential Moving Average strategies in the 3 JSE indices outperformed the buy-and-hold strategy. The Exponential Moving average captures shorter trend moves as it generally has a trend line closer to the closing prices due to the use of most recent prices. Given the chart series graphs its seen that there was minimal change in prices throughout the in-sample period resulting in the exponential moving average matching prices quite accurately causing more profit.
+The out-of-sample period starts from 1st April 2014 and ends on the 31st of March 2017. Observing the prices using the chart series suggests that prices are more volatile in the out-of-sample period.
+
+![caption](Top40EMA.png)
+Chartseries to show Simple Moving Averages in the JSE top40
+
+<!-- want to add more empirical results and a final table to show the best strategies tested out-of-sample. I still have a lot of additional analysis to perform on all the different statistics--> 
+# Conclusion
+
+The best strategies out of sample all failed to beat the buy-and-hold strategy. This follows the weak form Efficient Market Hypothesis. The in-sample results only beat the buy and hold strategy as the moving averages were over optimized to the curves. Moving Averages are useful in determining trends but cannot be utilized to achieve additional profits. An issue that occurred could be the mismatch between out-of-sample and in-sample strategies having different time lengths. In-sample only had 3 years while out of sample had 8 years. This is due to the fact that only a limited amount of data is available.
+
+\newpage
+
+# References
+
+<!--I tried adding an appendix but it always goes before the Reference List-->
+
+
