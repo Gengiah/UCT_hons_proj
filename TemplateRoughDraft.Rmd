@@ -151,7 +151,9 @@ The out-of-sample period starts from 1st April 2014 and ends on the 31st of Marc
 Chartseries to show Simple Moving Averages in the JSE top40
 
 <!-- want to add more empirical results and a final table to show the best strategies tested out-of-sample. I still have a lot of additional analysis to perform on all the different statistics--> 
-# Conclusion
+
+![Table to show the top strategy returns and standard deviations compared to the buy and hold returns and standard deviation and the number of buy and sell trades out-of-sample.](out-of-sample results.png)
+#Conclusion
 
 The best strategies out of sample all failed to beat the buy-and-hold strategy. This follows the weak form Efficient Market Hypothesis. The in-sample results only beat the buy and hold strategy as the moving averages were over optimized to the curves. Moving Averages are useful in determining trends but cannot be utilized to achieve additional profits. An issue that occurred could be the mismatch between out-of-sample and in-sample strategies having different time lengths. In-sample only had 3 years while out of sample had 8 years. This is due to the fact that only a limited amount of data is available.
 
