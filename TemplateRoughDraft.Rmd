@@ -2,7 +2,7 @@
 # IMPORTANT: Change settings here, but DO NOT change the spacing. 
 # Remove comments and add values where applicable. 
 # The descriptions below should be self-explanatory
-title: "The profitability of moving averages in the South African market"
+title: "The profitability of moving averages in Specific South African Economic Sectors"
 #subtitle: "This will appear as Right Header"
 Author: "Ashley Gengiah"  # First Author
 Student: "GNGASH001"
@@ -14,7 +14,7 @@ output:
     fig_width: 5 # Adjust default figure sizes. This can also be done in the chunks of the text
     fig_height: 4
 abstract: |
-  Moving Averages in the South African market are profitable. The Research Paper aims to prove this statement by using simple and exponential Moving Averages on 3 different Johannesburg Stock Exchange Indices. The best strategies from simple and exponential moving averages were tested in-sample and out-of-sample. The results disagreed with the initial hypothesis and Moving averages were not profitable. The results could change if equal lengths of in and out of sample periods were used.
+The Research Paper examines the profitability of simple and exponential Moving Averages on 3 different Johannesburg Stock Exchange Indices from 2006-2017. An optimization algorithm is used to determine the best short and long run moving averages. The results provided profits in the training period but provided no profits in the validation period. The results disagreed with the initial evidence of moving averages being profitable.Further research could be performed by testing different moving averages.
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5, fig.pos="H", fig.pos = 'H')
@@ -22,13 +22,21 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width 
 
 # Introduction
 
-The Research Paper aims to prove the profitability of moving averages in the South African Market. Given South Africa’s growing global presence, research on the profitability of moving averages in the South African Market could be utilized for future profits. The Research Project will focus on the JSE top40, The JSE IND and the JSE FINI. The Research project will focus on using Simple and Exponential moving averages to determine profitability of these 3 sectors and transaction costs will be included.
+Technical analysis involves using the volume and latest stock prices to determine models and technical trading indicators for a given set of data. Moving averages are the most widely known and used by practitioners and financial traders in the markets. [@sobreiro2016profitability]. 
 
-The JSE top40 is South Africa’s best known index. It includes the 40 largest companies listed on the JSE. This is the index that most people monitor as an overall benchmark for the South African exchange. These 40 companies are the largest in terms of market capitalization which provides a representation of the South African market as a whole. Performing moving average trend line analysis on the Top40 index will generate results representing the profitability of moving average in the whole South African market. The JSE IND is the top 25 industrial companies index in terms of market capitalization and the JSE FINI is the top 15 financial companies index in the JSE in terms of market capitalization. The industrial and financial sector are the 2 biggest sectors in South Africa, thus testing profitability for these 2 sectors individually could be profitable. 
-Moving Average trend lines are a form of technical analysis. 
+“Moving Average are a type of smoothing method for reducing, or cancelling random variation inherent in data taken over time. When applied properly, this technique reveals more clearly the underlying trend, seasonal and cyclic approach components in the data.” [@okkelsfinancial] This definition implies that moving average can still be used in understanding the direction of the market even if it cannot be used directly in beating the buy-and-hold strategy. Recent studies suggest that moving averages can be used to generate profits. The paper investigates if moving averages are profitable in the South African market.
 
-Technical analysis involves using the volume and latest stock prices to determine models and technical trading indicators for a given set of data. Moving averages are the most widely known and used by practitioners and financial traders in the markets. [@sobreiro2016profitability]
-A paper was done on the 5 emerging national economies of Brazil, Russia, India, China and South Africa, (BRICS).[@sobreiro2016profitability] The paper analyzed South Africa but did not cover the South African market extensively. The South African stock market is described in a paper done in 2003 as not weak form market efficient suggesting profitable opportunities. [@appiah2003return] The lack of information involving moving average trend lines in the South African market and the potential for profits emphasizes the importance of the research question.
+The Johannesburg Stock Exchange is the biggest stock exchange in Africa. Performing moving average trend line analysis on the 3 different sectors in the JSE creates a greater opportunity to exploit profits in specific economic sectors. The JSE IND is the top 25 industrial companies index in terms of market capitalization, the JSE RESI is the top 10 resource companies index in terms of market capitalization and the JSE FINI is the top 15 financial companies index in the JSE in terms of market capitalization. The industrial, resource and financial sectors are the 3 biggest sectors in South Africa. The paper aims to test moving average trend analysis in these 3 specific sectors. 
+
+Given South Africa’s growing global presence, research on the profitability of moving averages in the South African Market could be utilized for future profits. The paper investigates three different sectors on the Johannesburg Stock Exchange, (JSE). The three sectors are the financial, resource and industrial sectors. The paper examines Simple and Exponential moving averages to determine profitability of these three sectors while including transaction costs.
+
+Only one paper has done moving average analysis on South Africa. The paper examined the 5 emerging national economies of Brazil, Russia, India, China and South Africa using technical analysis (BRICS). [@sobreiro2016profitability] The paper analyzed South Africa but did not cover the South African market extensively. 
+
+The importance of the research question can be split up into a number of specific reasons. The South African stock market is described as weak-form inefficient suggesting profitable opportunities. [@appiah2003return] The lack of information involving moving average trend lines in the South African market and the potential for profits emphasizes the need for Moving Average analysis in the South African Market specific to sectors. There is very little research on moving averages in different sectors. The 3 specific sectors are the biggest in South Africa. Each sector examines unique companies within each sector. 
+
+The Data is explained more in section four. The analysis of each sector could provide crucial information for potential investors and technical traders. Finally, given that the paper is restricted to only simple and exponential moving averages, many of the assumptions underlying technical analysis can be ignored. Section five elaborates more on the assumptions used in the paper and the exact methodology. Section six provides,analyses and tests the results. Section seven is the conclusion.
+
+
 
 
 ```{r}
@@ -40,7 +48,7 @@ A paper was done on the 5 emerging national economies of Brazil, Russia, India, 
 
 ## The beginning of technical analysis
 
-Technical analysis was first introduced by Charles H. Dow. Charles H. Dow believed stock market prices could provide information on the overall market. This lead to Dow theory which was introduced in the late 1800’s starting what is known as technical analysis.[@bessembinder1998market] Technical analysis is used in the financial industry amongst different market participants. The introduction of the Efficient Market Hypothesis proposed by Fama [-@malkiel1970efficient] lead to a decline in the use of technical analysis and the disbelief that profits could be generated from technical analysis. [@sobreiro2016profitability] It was only in 1992 when a paper done by William Brock, Josef Lakonishok and Blake LeBaron provided significant evidence in justifying the use of technical analysis. [@fong2005chasing]. The paper lead to the resurgence in testing technical analysis in different markets and determining whether it is actually profitable.
+Technical analysis was first introduced by Charles H. Dow. Charles H. Dow believed stock market prices could provide information on the overall market. This lead to Dow theory which was introduced in the late 1800’s starting what is known as technical analysis.[@bessembinder1998market] Technical analysis is used in the financial industry amongst different market participants. The introduction of the Efficient Market Hypothesis proposed by Fama [-@malkiel1970efficient] lead to a decline in the use of technical analysis and the disbelief that profits could be generated from technical analysis. [@sobreiro2016profitability] In 1992, William Brock, Josef Lakonishok and Blake LeBaron provided significant evidence in justifying the use of technical analysis. [@fong2005chasing] The paper found signifcant evidence that simple trading rules provide economically and statistically significant returns. Moving averages in particualr outperformed the buy-and-hold to the resurgence in testing technical analysis in different markets and determining whether it is actually profitable.
 
 ## The Efficient Market Hypothesis
 
@@ -59,9 +67,15 @@ The Efficient Market Hypothesis is one of the main reasons why individuals do no
 
 ## Moving Averages
 
-“Moving Average are a type of smoothing method for reducing, or cancelling random variation inherent in data taken over time. When applied properly, this technique reveals more clearly the underlying trend, seasonal and cyclic approach components in the data.” [@okkelsfinancial] This definition implies that moving average can still be used in understanding the direction of the market even if it cannot be used directly in beating the buy-and-hold strategy.
 The simple and exponential moving averages are the most frequently used moving averages and are used in different ways to predict the buy and sell signals in the price history. Exponential moving average gives more weight to recent stock prices while simple provides equal weighting for all stock prices in a given time period. [@okkelsfinancial]. One method is the comparison of short and long run simple moving averages. Short and long run moving averages refers to the specific time frame in which the moving average is calculated. In a paper done on South Asian markets, short is referred to as 10, 20 or 50 day moving averages, while long run is referred to as 50,100 or 200 day moving averages. [@ming2006profitability]
-Moving average techniques require buy and sell signals after comparing short and long run simple or exponential moving averages. [@gunasekarage2001profitability]. The paper discusses 2 moving average techniques which are: Variable length moving average and fixed length moving average. The variable length moving average rule generates a buy-and-sell signal every day.  Variable length moving average signals to buy when short moving average is above the long moving average. The crossing over of Moving averages is referred to as the dual moving average crossover. [@ming2006profitability]. The fixed length moving average holds a moving average for a fixed period of time. This is a 10-day holding period in Brock [-@brock1992simple] and Ming-Ming, L & Siok-Hwa, L [-@ming2006profitability]. During this 10-day period signals do not change the fixed length moving average till the end of the holding period, where cumulative profits are calculated. Fixed length moving average focuses on crossing over of long and short moving averages. A sell (buy) signal occurs when the short (long) moving average crosses the long (short) moving average from above. 
+Moving average techniques require buy and sell signals after comparing short and long run simple or exponential moving averages. [@gunasekarage2001profitability]. The paper discusses 2 moving average techniques which are: Variable length moving average and fixed length moving average. The variable length moving average rule generates a buy-and-sell signal every day.  Variable length moving average signals to buy when short moving average is above the long moving average. The crossing over of Moving averages is referred to as the dual moving average crossover. [@ming2006profitability].
+The variable length moving average is written as VMA(S,L,B) where S is the short moving average, L is the long moving average and B is the band that allows the actual buying and selling signal to occur. B is written as a percentage. B is important as it allows us to know when we should or should not purchase. B is in line with transaction costs[@bessembinder1998market]. 
+The fixed length moving average holds a moving average for a fixed period of time. This is a 10-day holding period in Brock [-@brock1992simple] and Ming-Ming, L & Siok-Hwa, L [-@ming2006profitability]. During this 10-day period signals do not change the fixed length moving average till the end of the holding period, where cumulative profits are calculated. Fixed length moving average focuses on crossing over of long and short moving averages. A sell (buy) signal occurs when the short (long) moving average crosses the long (short) moving average from above.
+Moving Average strategies require:
+
+$$ Profit( After transaction  costs) = (mean return * number of trades) - (transaction costs) $$
+The above strategy provides the profit in percentages. The strategy prevents using exact monetary values and accounts for transaction costs.[@ming2006profitability] The strategy is simple to use and requires complete investment of funds into each signal. The research paper will follow a similar strategy in determining the profitability of moving averages.
+
 
 ## Empirical results 
 
@@ -71,11 +85,12 @@ Brock [-@brock1992simple] analysed fixed and variable moving averages in the Dow
 The study done on 6 equity indices in Asia provided results indicating strong predictive power of moving averages in Malaysian, Thailand and Taiwan stock markets. The paper's results confirm the profitability of moving average trend lines.[@bessembinder1998market] The study obtained stock price index data from (1975-1989). The returns are computed as changes in log price indices thus preventing autocorrelation. The transaction costs were reported as break even costs in order to calculate the highest percentage of profits available for transaction costs. The average transaction cost is 1.57% for the whole sample. If the transaction cost were 1% then moving averages would have been profitable.
 
 
-The study done by Ming-Ming & Siok-Hwa used the daily closing price index is used as the short term moving average. [-@ming2006profitability] The long term moving average varies between the time period of 20, 60,120,180,240 days.  Multiple long moving averages are compared to the 1-day short moving average. The results concluded that the best strategy was using a 60-day long moving average and the 1-day short moving average. The results indicated variable moving averages were more profitable than fixed moving average and both provided significant returns.
+The study done by Ming-Ming & Siok-Hwa used the daily closing price index as the short term moving average. [-@ming2006profitability] The long term moving average varies between the time period of 20, 60,120,180,240 days.  Multiple long moving averages are compared to the daily closing price index. The results concluded that the best strategy was using a 60-day long moving average and the daily closing price index. The results indicated variable moving averages were more profitable than fixed moving average and both provided significant returns.
 
+The variable moving average requires multiple buy and sell signals until the short moving average crosses the long moving average. The research paper will only focus on fixed moving averages thus limiting the number of buy and signals.
 #Data
 
-The data chosen for the study involves using 2 sets of closing prices which range from the 2006 to 2017. The 1st set of closing prices are over an 8-year period from 1st of May, 2006 to 31st of April 2014  The out-of-sample test will occur between the 1st of May 2014 to 31st of April 2017. All data is taken from Google Finance and focuses on the JSE TOP40, JSE Top25 industrial companies and the JSE top15 financial companies
+The data chosen for the study involves using closing prices from 2006 to 2017. The closing prices are split into two categories.The first set of closing prices are over an 8-year period from 1st of May, 2006 to 31st of April 2014. The first set of closing prices is the training period. This period allows us to generate an optimal moving average strategy. The validation period test will occur between the 1st of May 2014 to 31st of April 2017. The second period allows us to test if our training period moving average strategy is still profitable out-of-sample.All data is taken from Google Finance and focuses on the JSE Top10 Resource companies, JSE Top25 industrial companies and the JSE top15 financial companies
 
 The Transaction cost used consists of 4 aspects: 
 Brockerage fee= 0.6%
@@ -88,6 +103,8 @@ Security Transfer Tax=0.25%
 
 The total transaction costs = 0.855659%.[@FNB]
 
+Assumptions. The closing prices used from Google finance are log prices.The returns referred to in the paper are the log-returns.
+
 # Methodology
 
 The 2 main Moving Averages used in this reasearch paper are simple moving average and exponential moving average. Simple moving averages is the sum of latest stock prices divided by the number of stock prices:
@@ -99,7 +116,7 @@ $$SMA_n= \frac{1}{k} \times \sum_{t = n-k +1}^{n}P_t$$
 Where:
 $P_t$ is the closing price of the stock in t period.  
 $n$ is the relative position of the current period observed;   and
-$k$ is the number of periods included un the SMA calculation;
+$k$ is the number of periods included in the SMA calculation;
 
 Simple averages are the easiest to interpret while exponential moving averages provide stronger predictive ability in market prices. Exponential moving averages focus on the most recent values and thus are similar to weighted moving averages.
 
@@ -132,6 +149,8 @@ Step 5: Choose the best combination of short and long simple and exponential mov
 The package quantmod is used to collect the data from google finance and convert prices to log returns.
 To avoid autocorrelation daily log returns were used to calculate profits rather than the actual closing prices.  A sequence was run to generate different values for the short and long periods. The short periods ranged from 5 to 55 in steps of 25 while the long periods ranged from 55 to 405 in steps of 50.
 Back testing was used in the training period to calculate the optimal strategy for each JSE index using simple and exponential moving averages. The Best strategy for each moving average will be tested out-of-sample to ensure the results were not over optimized to match the specific training period.This prevents inaccurate results.
+
+(Will include a algorithm specific to the code I used)
 
 # Empirical results
 
