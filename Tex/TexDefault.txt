@@ -6,6 +6,9 @@
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
@@ -52,7 +55,8 @@
 \begin{abstract}
 $abstract$
 \noindent
-\\Keywords: JSE Top40, JSE IND, JSE FIN,  Moving Average, chartseries.
+\\Keywords: JSE RESI, JSE IND, JSE FIN,  Moving Average, chartseries.
+
 \end{abstract}
 \end{titlepage}
 
