@@ -14,7 +14,7 @@ output:
     fig_width: 5 # Adjust default figure sizes. This can also be done in the chunks of the text
     fig_height: 4
 abstract: |
- The Research Paper examines the profitability of simple and exponential Moving Averages on 3 different Johannesburg Stock Exchange Indices from 2006-2017. An optimization algorithm is used to determine the best short and long run moving averages. The results provided profits in the training period but provided no profits in the validation period. The results disagreed with the initial evidence of moving averages being profitable.Further research could be performed by testing different moving averages.
+ The Research Paper examines the profitability of simple and exponential Moving Averages on 3 different Johannesburg Stock Exchange Indices from 2006-2017. The research paper tests whether the weak form market hypothesis holds in the south african market. An optimization algorithm is used to determine the best short and long run moving averages in a training period. Forward testing is performed by   The results provided two optimal moving strategies that generated profits in the training period and in the validation period. 
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5, fig.pos="H", fig.pos = 'H')
@@ -28,20 +28,13 @@ Technical analysis involves using the volume and latest stock prices to determin
 
 The Johannesburg Stock Exchange is the biggest stock exchange in Africa. Performing moving average trend line analysis on the 3 different sectors in the JSE creates a greater opportunity to exploit profits in specific economic sectors. The JSE IND is the top 25 industrial companies index in terms of market capitalization, the JSE RESI is the top 10 resource companies index in terms of market capitalization and the JSE FIN is the top 15 financial companies index in the JSE in terms of market capitalization. The industrial, resource and financial sectors are the 3 biggest sectors in South Africa. The paper aims to test moving average trend analysis in these 3 specific sectors. 
 
-Given South Africa’s growing global presence, research on the profitability of moving averages in the South African Market could be utilized for future profits. The paper investigates three different sectors on the Johannesburg Stock Exchange, (JSE). The three sectors are the financial, resource and industrial sectors. The paper examines Simple and Exponential moving averages to determine profitability of these three sectors while including transaction costs.
+Given South Africa’s growing global presence, research on the profitability of moving averages in the South African Market could be utilized for future profits. The paper investigates three different sectors on the Johannesburg Stock Exchange, (JSE). The three sectors are the financial, resource and industrial sector indices. The paper examines Simple and Exponential moving averages to determine profitability of these three sectors while including transaction costs.
 
 Only one paper has done moving average analysis on South Africa. The paper examined the 5 emerging national economies of Brazil, Russia, India, China and South Africa using technical analysis (BRICS). [@sobreiro2016profitability] The paper analyzed South Africa but did not cover the South African market extensively. 
 
-The importance of the research question can be split up into a number of specific reasons. The South African stock market is described as weak-form inefficient suggesting profitable opportunities. [@appiah2003return] The lack of information involving moving average trend lines in the South African market and the potential for profits emphasizes the need for Moving Average analysis in the South African Market specific to sectors. There is very little research on moving averages in different sectors. The 3 specific sectors are the biggest in South Africa. Each sector examines unique companies within each sector. 
+The importance of the research question can be split up into a number of specific reasons. The South African stock market is described as weak-form inefficient suggesting profitable opportunities. [@appiah2003return] The lack of information involving moving average trend lines in the South African market and the potential for profits emphasizes the need for Moving Average analysis in the South African Market specific to sectors. There is very little research on moving averages in different sectors.
 
 The Data is explained more in section four. The analysis of each sector could provide crucial information for potential investors and technical traders. Finally, given that the paper is restricted to only simple and exponential moving averages, many of the assumptions underlying technical analysis can be ignored. Section five elaborates more on the assumptions used in the paper and the exact methodology. Section six provides,analyses and tests the results. Section seven is the conclusion.
-
-
-
-
-```{r}
-
-```
 
 
 #Background
@@ -64,6 +57,10 @@ The paper rewritten by [@fama1991efficient] refers to the Efficient Market Hypot
 If all information is available in the prices, then additional information such as moving averages shouldn’t provide any financial profitability. The Weak form efficient market hypothesis states that there is no justification for technical analysis.  This implies that markets are efficient and arbitrage should not be attainable through technical analysis. [@fama1991efficient]. 
 The weak form of the efficient market hypothesis has been the paradigm in describing the behaviour of prices in speculative market. A paper done in 1988 proved the non-existence of random walks in the stock market using the NYSE-AMEX index. [@lo1988stock]
 The Efficient Market Hypothesis is one of the main reasons why individuals do not regard technical analysis as useful and has lead market participants to avoid technical analysis. Technical analysis is still used by market participants. Moving averages might not provide exact profits but they do provide other information about the data.
+
+## Sector Analysis
+
+Mebane Fabor [-@faber2010relative] analysed ten sectors by combining different sectors together to try and beat the overall market index. The results provided substantial profits. The paper indicates that analysis of specific sectors and combining sectors could results in profitable opportunities. Resource companies are cyclical companies while industrial and financial companies are only prone to impactful economic events.[@berman1997industries].
 
 ## Moving Averages
 
@@ -91,24 +88,50 @@ The variable moving average requires multiple buy and sell signals until the sho
 
 #Data
 
-The data chosen for the study involves using closing prices from 2006 to 2017. The closing prices are split into two categories.The first set of closing prices are over an 8-year period from 1st of May, 2006 to 31st of April 2014. The first set of closing prices is the training period. This period allows us to generate an optimal moving average strategy. The validation period test will occur between the 1st of May 2014 to 31st of April 2017. The second period allows us to test if our training period moving average strategy is still profitable out-of-sample.All data is taken from Google Finance and focuses on the JSE Top10 Resource companies, JSE Top25 industrial companies and the JSE top15 financial companies.
+The data chosen for the study involves using closing prices from 2006 to 2017. The closing prices are split into two categories.The first set of closing prices are over an eight year period from 1st of May, 2006 to 31st of April 2014. The first set of closing prices is the training period. This period allows us to generate an optimal moving average strategy. The validation period test will occur between the 1st of May 2014 to 31st of April 2017. The second period allows us to test if our training period moving average strategy is still profitable out-of-sample.All data is taken from Google Finance and focuses on the JSE Top10 Resource companies index, JSE Top25 industrial companies index and the JSE Top15 financial companies index.
 
-The Transaction cost used consists of 4 aspects: 
-Brockerage fee= 0.6%
+The Transaction cost used consists of four aspects:
 
-Investor protection levy = 0.0002% 
-
-STRATE fee= 0.005459% 
-
-Security Transfer Tax=0.25%
-
+* Brockerage fee= 0.6%
+* Investor protection levy = 0.0002% 
+* STRATE fee= 0.005459%
+* Security Transfer Tax=0.25%
 The total transaction costs = 0.855659%.[@FNB]
-
 The closing prices used from Google finance are log prices.The R package quantmod is used to collect the data from google finance and convert prices to log returns.The returns referred to in the paper are the log-returns. To avoid autocorrelation daily log returns were used to calculate profits rather than the actual closing prices.
+```{r, echo=FALSE, fig.height=4, fig.width=6, fig.align='left'}
+library(quantmod)
+invisible(getSymbols('STXIND',src='google'))
+
+quantmod::chartSeries(STXIND,name = "JSE IND Top25")
+
+
+```
+**Chartseries to show the closing prices for the JSE Top25 Industrial companies indice.(2007-2017)**
+
+```{r, echo=FALSE, fig.height=4, fig.width=6, fig.align='left',}
+library(quantmod)
+invisible(getSymbols('STXFIN',src='google'))
+
+quantmod::chartSeries(STXFIN,name = "JSE FIN Top15")
+
+
+```
+**Chartseries to show the closing prices for the JSE Top15 Financial companies indice.(2007-2017)**
+```{r, echo=FALSE, fig.height=4, fig.width=6,fig.align='left'}
+library(quantmod)
+invisible(getSymbols('STXRES',src='google'))
+
+quantmod::chartSeries(STXRES,name = "JSE RES Top15")
+
+
+```
+**Chartseries to show the closing prices for the JSE Top10 Resource companies indice.(2007-2017)**
+\
+The three chartseries provides valuable information on each individual sector. The financial and industrial sector seem to be in a bullish position, the market price is on the rise, for the last 10years and continue to rise. The resource sector data seems highly volatile. Moving average analysis on the JSE Top10 Resource company could provide exploitable opportunities from the multiple fluctuation shown in the chartseries. 
 
 # Methodology
 
-The two Moving Averages used in this reasearch paper are simple moving averages and exponential moving averages. 
+The two Moving Averages used in this research paper are simple moving averages and exponential moving averages. 
 
 ##Simple Moving Average
 
@@ -116,7 +139,6 @@ Simple moving averages is the sum of latest stock prices divided by the number o
 Simple moving average calculation
 
 $$SMA_n= \frac{1}{k} \times \sum_{t = n-k +1}^{n}P_t$$ 
-
 
 Where:
 $P_t$ is the closing price of the stock in t period.  
@@ -137,17 +159,20 @@ and
 $k$ is the number of periods included in the EMA calculation;
 
 The Research project will only focus on simple and exponential moving average trend lines. Moving Average Convergence Divergence is the formal name for comparing a short and long run exponential moving average. 
-The simple and exponential moving averages were calculated using the TTR package in R.[]  
-The Methodology that will be incorporated in answering the research question is the application of dual moving average crossover and moving average convergence divergence. This allows for short and long term moving averages while comparing simple and exponential moving averages. The literature reviewed suggests using a short moving average of either 5,10,30 or 50 days and long moving average of either 50,100 or 200 days. 	
+The simple and exponential moving averages were calculated using the TTR package in R.
+The Methodology that will be incorporated in answering the research question is the application of dual moving average crossover and moving average convergence divergence. This allows for short and long term moving averages while comparing simple and exponential moving averages. The literature reviewed suggests using a short moving average of either 5,10, or fifty days and long moving average of either fifty,one hundred or two hundred days. 	
 The exact methodology will be explained in a step by step algorithm how to test the profitability of moving averages in different sectors. The algorithm is used for both simple and exponential moving averages.
 
 Algorithm: 
 $$Moving\ average\ function\ =\ function(Data,short,long,cost) $$
-..*Data is the actual data from each sector we are analysing and the exact time frame. The data is split into a training period and a validation period.
-..*Short is the short run moving average 
-..*Long is the long run moving average 
-..*Cost is the actual transaction cost = 0.855659%
+The variables in the function are defined:
 
+* Data is the actual data from each sector we are analysing and the exact time frame. The data is split into a training period and a validation period.
+* Short is the short run moving average 
+* Long is the long run moving average 
+* Cost is the actual transaction cost = 0.855659%
+
+##Moving Average Algorithm
 
 The exact methodology of the function will be explained in a step by step process. The function is used seperately for simple and exponential moving averages. The only change is that the short and long moving average must either be a simple or exponential moving average.  The research paper does not test short and long run moving averages of different natures. 
 
@@ -167,18 +192,15 @@ The exponential function differs to the simple moving average function in the fa
 
 A sequence using the moving average function was run to generate different values for the short and long periods. The short periods ranged from five to fifty-five days in steps of twenty-five days while the long periods ranged from fifty-five to four hundred and five days in steps of fifty. The sequence generates twenty-four moving averages for either simple or exponential moving average. The empirical results will only look at the top six strategies to determine if any strategies are profitable.
 
-The sequence will be run for simple and exponential moving averages in the 3 different sectors which will result in six tables of data analysis.
+The sequence will be run for simple and exponential moving averages in the three different sectors which will result in six tables of data analysis. The main area of risk that need to be analysed is the standard deviation and sharpe ratio. The tables will provide comparative analysis of the optimal strategies and the buy-and-hold strategy.
 
-Back testing is used in the training period to calculate the optimal strategy for each JSE index using simple and exponential moving averages. The Best strategy for each moving average in our training period will be tested in a validation period to ensure the results were not over optimized to match the specific training period.This prevents inaccurate results and verifies whether the optimal strategy is in fact optimal in different time periods.
+Back testing is used in the training period to calculate the optimal strategy for each JSE index using simple and exponential moving averages. The Best strategy for each moving average in our training period will be tested in a validation period to ensure the results were not over optimized to match the specific training period. The testing of a strategy in the validation period is forward testing. Forward testing prevents inaccurate results and verifies whether the optimal strategy is profitable out of the initial sample.
 
-\newpage
 # Empirical results
 
-The empirical results for the best strategies in the training periods are plotted in the tables below."short" is the number of days used in the short run moving average. "long" is the number of days used in the long run moving average. "strat_return" is the overall return generated from the strategy of short and long run moving averages. "strat_sd" is the standard deviation for the strategy. "strat_sharpe" is the sharpe ratio for the specific moving average strategy. "bh" referes to the buy-and-hold strategy. "Buy" is the number of buys that occur due to the strategy. "sells" is the number of sells that occur due to the strategy throughtout the investment period. 
+The empirical results for the best strategies in the training periods are plotted in the tables below.The headings of each column are explained. "short" is the number of days used in the short run moving average. "long" is the number of days used in the long run moving average. "strat_return" is the overall return generated from the strategy of short and long run moving averages. "strat_sd" is the standard deviation for the strategy. "strat_sharpe" is the sharpe ratio for the specific moving average strategy. "bh" referes to the buy-and-hold strategy. "Bh_r" is the buy-and-hold strategy returns. "Bh_sd" is the buy-and-hold standard deviation."bh_sharpe" is the buy-and-hold strategy sharpe ratio. "Buy" is the number of buys that occur due to the strategy. "sells" is the number of sells that occur due to the strategy throughtout the investment period. 
 
-
-
-```{r}
+```{r SMA Top 15 Financial companies}
 library(knitr)
 
 load(file="smafin1.Rdata")
@@ -192,10 +214,9 @@ tablefin<-smafin1 %>%
 kable(tablefin, caption = "**Table to show the top 6 strategies in the JSE Top15 Financial companies using a simple moving average between 2006-2014**")
 ```
 
+The best strategy is a thirty short day moving average and a two hundred and five day long run moving average. The profit generated is 4.56% higher than the buy-and-hold strategy. The returns are 1.8 times greater than the buy-and-hold returns. The sequence generated five profitable moving average strategies indicating that multiple moving average combinations could be tested in the validation period.The optimal moving average strategy has less volatility and more return resulting in a sharpe ratio of 0.3378.This is better than the buy and hold sharpe ratio but still is not close to the desired value of 1. The strategy is highly profitable but will have to be tested out of sample in order to be validated.
 
-The best strategy is a thirty short day moving average and a two hundred and five day long run moving average. The profit generated is 0.0456% higher than the buy-and-hold strategy.The sequence generated five profitable moving average strategies. This return is considerably higher than the buy-and-hold strategy. The optimal moving average strategy has less volatility and more return resulting in a higher sharpe ratio.The strategy is highly profitable but will have to be tested out of sample in order to be validated.
-
-```{r}
+```{r EMA Top 15 Financial }
 library(knitr)
 
 load(file="emafin1.Rdata")
@@ -206,12 +227,12 @@ tablefin<-emafin1 %>%
   filter(buy != 0) %>% 
   head
 
-kable(tablefin,align="l", caption = "**Table to show the top 6 strategies in the JSE Top15 Financial companies using a exponential moving average between 2006-2014**")
+kable(tablefin,align="l", caption = "**Table to show the top 6 strategies in the JSE Top15 Financial companies index using a exponential moving average between 2006-2014**")
 ```
 
-The best strategy is a fifty five day short run moving average and a one hundred and fifty five day long run moving average. 
+The best exponential moving average strategy is a fifty five day short run moving average and a one hundred and fifty five day long run moving average. The strategy provides excess returns of 2.89%. The sharpe ratio is 0.3378 which is similar to th simple moving average sharpe ratio. Both the exponential and simple moving averages provide small returns in the financial companies index however the returns could be leveraged correctly to generate large profits.
 
-```{r}
+```{r SMA Top25 Industrial}
 library(knitr)
 
 load(file="smaIND1.Rdata")
@@ -222,12 +243,10 @@ tablefin<-smaIND1 %>%
   filter(buy != 0) %>% 
   head
 
-kable(tablefin,align="l", caption = "**Table to show the top 6 strategies in the JSE Top15 Financial companies using a simple moving average between 2006-2014**")
+kable(tablefin,align="l", caption = "**Table to show the top 6 strategies in the JSE Top25 Industrial companies index using a simple moving average between 2006-2014**")
 ```
 
-The best strategy is a five day short run moving average period and three hundred and fifty five day long run moving average.
-
-```{r}
+```{r EMA Top25 Industrial}
 library(knitr)
 
 load(file="emaIND1.Rdata")
@@ -238,12 +257,12 @@ tablefin<-emaIND1 %>%
   filter(buy != 0) %>% 
   head
 
-kable(tablefin,align="l", caption = "**Table to show the top 6 strategies in the JSE Top15 Financial companies using a simple moving average between 2006-2014**")
+kable(tablefin,align="l", caption = "**Table to show the top 6 strategies in the JSE Top25 Industrial companies index using a exponential moving average between 2006-2014**")
 ```
 
-The five day short run moving average and a three hundred and five day long run moving average provide the optimal 
+The industrial sector provided the highest returns compared to the financial and resource sectors indices.The excess returns for the simple and exponential are 0.53% and 1.44% respectively. The sharpe ratios are close to 1 indicating a considerably good investment for investors. The optimal strategy suggests a long moving average strategy over three hundred and five days indicating a general long term trend. The chartseries in in the data section confirms the bullish trend.
 
-```{r}
+```{r SMA Top10 Resource}
 library(knitr)
 
 load(file="smaRES1.Rdata")
@@ -254,12 +273,11 @@ tablefin<-smaRES1 %>%
   filter(buy != 0) %>% 
   head
 
-kable(tablefin,align="l", caption = "**Table to show the top 6 strategies in the JSE Top15 Financial companies using a simple moving average between 2006-2014**")
+kable(tablefin,align="l", caption = "**Table to show the top 6 strategies in the JSE Top10 Resource companies index using a simple moving average between 2006-2014**")
 ```
 
-The fifty five short day moving average and the one hundred and five day moving average.
 
-```{r}
+```{r EMA TOP10 Resource}
 library(knitr)
 
 load(file="emaRES1.Rdata")
@@ -270,23 +288,65 @@ tablefin<-emaRES1 %>%
   filter(buy != 0) %>% 
   head
 
-kable(tablefin,align="l", caption = "**Table to show the top 6 strategies in the JSE Top15 Financial companies using a simple moving average between 2006-2014**")
+kable(tablefin,align="l", caption = "**Table to show the top 6 strategies in the JSE Top10 Resource companies index using a exponential moving average between 2006-2014**")
 ```
 
-Need to analyse all the results. cyclical pattern of behavior. This is also true for utility companies, which have steady demand for their product year-to-year, but experience strong seasonal changes.
+The Resource sector is the most volatile sector as shown by the chartseries in the data section. The resource sector is a cyclical sector resulting in the excess volatility. The 5.5 and 5.6 indicate this as the Top 10 Resource companies have the highest risk with the top strategies in both simple and exponential moving averages obtaining standard deviations greater than 0.2. The returns are also negative in most strategies. Only the top exponential moving average strategy had a positive return of 1.92% while the top simple moving average had a return of 1.97%. The resource sector is the only sector to have a negative buy and hold return of -5.9%. The results provide evidence that additional risk will provide excess returns. The resource sector experiences strong seasonal changes in demand for specific resources. This also generates additional volatility.
 
 <!-- Interesting facts about moving average. 1. The 21-day moving average commonly marks the short-term trend, the 50-day moving average the intermediate trend, and the 200-day moving average the long-term trend of the market. The SPY is generally the best tracking ETF for the market in general.-->
 
 <!--![Table to show the top strategy returns and standard deviations compared to the buy and hold returns and standard deviation and the number of buy and sell trades.
 ](In-sample.jpg ) (Previous table in word) The new tables are better-->
+## Final results 
 
-The Best Simple Moving Average strategy for the JSE Top40 with a short period of 30 days and a long period of 355 days did not beat the buy-and-hold strategy. This could be accounted for by the 16 trades that occurred. The transaction costs overall could have resulted in less profit than the buy-and-hold strategy.
+The Top 6 strategies were analysed in the validation period from the 1st of May 2014 to 31st of April 2017. The exact same moving average algorithm was used with the new dates generated from the previous moving average strategy sequence. The exact short and long periods were used to calculate the new returns, standard deviations and sharpe ratios for the buy and hold strategy and the optimal moving average strategy. The table below uses the same variables labelled in the beginning of the empirical results section while including a new column which indicates the specific economic sector and the type of moving average.
 
-The Best Simple Moving Average strategy for the JSE IND with a short period of 5 days and a long period of 355 days exceeded the buy-and-hold strategy by 0.0054. The profit is rather small but if leveraged correctly could be worth investing in.
-The Best Simple Moving Average strategy for the JSE FIN with a short period of 30 days and a long period of 205 days did outperform the buy-and-hold strategy by 0.0462. The profit is considerably high and is worth investing in.
-All the Best Exponential Moving Average strategies in the 3 JSE indices outperformed the buy-and-hold strategy. The Exponential Moving average captures shorter trend moves as it generally has a trend line closer to the closing prices due to the use of most recent prices. 
+```{r final results table,results='asis', tidy=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+library(xtable)
 
-![Chartseries to show Simple Moving Averages in the JSE top40](smatop40.png)
+c1 <- c("JSE FIN SMA"," JSE FIN EMA","JSE IND SMA","JSE IND EMA ","JSE RES SMA","JSE RES EMA ")
+c2 <- c("30","55","5","5","55","30")
+c3 <- c("205","105","305","355","105","105")
+c4 <- c("0.0042","0.0232","0.0998","0.0906","0.0131","-0.0931")
+c5 <- c("0.1228","0.1266","0.1457","0.1451","0.1678","0.1975")
+c6 <- c("0.0341","0.1835","0.6851","0.6246","0.0783","-0.4712")
+c7 <- c("0.0077","0.0077","0.1056","0.1056","-0.1426","-0.1426")
+c8 <- c("0.1923","0.1923","0.1567","0.1567","0.2872","0.2872")
+c9 <- c("0.0402","0.0402","0.6737","0.6737","-0.4964","-0.4964")
+c10<- c("3","3","3","2","3","4")
+c11<- c("3","3","3","2","3","3")
+validationperiod.mat <- matrix(data = c(c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11),ncol = 11)
+dimnames(validationperiod.mat) <- list(c(" "," "," "," "," "," "),   #row names
+                                  c("Index, MA","short","long","strat_r","strat_sd","strat_sharpe","bh_r","bh_sd","bh_sharpe","buy","sell"))  #column names
+validationperiod.data = validationperiod.mat %>% tbl_df()
+
+
+validation.table <- xtable(validationperiod.data, caption = "Table to show the six optimal moving average strategies tested in the validation period")
+print.xtable(validation.table,type="latex",floating = TRUE,
+             table.placement = 'H', 
+             scalebox = 0.8, 
+             comment = FALSE,
+             include.rownames = getOption("xtable.include.rownames", FALSE))
+```
+
+The Top six strategies in the validation period provided three strategies that outperformed the buy and hold strategy. The exponential moving average in the financial sector and both the simple and exponential moving average in the Resource sector outperformed the buy and hold strategy. The exponential moving average strategy in the JSE Top10 Resource companies indice outperformed the buy and hold strategy by 4.95% however the return on the strategy is -9.31% indicating that this strategy is unprofitable. The exponential moving average in the Top 15 financial companies generated excess returns of 1.55%. The strategy provided the lowest standard deviation for a profitable strategy of 12.66%.
+The simple moving average strategy for the JSE Top10 Resource companies index generated returns of 1.31% which exceeded the buy and hold strategy by 15.57%. The strategy required additional risk in the form of a 16.78% standard deviation. The best strategy that exceeded the buy and hold returns required a relatively short, long moving average length of 105 days. Due to the volatile prices indicated in the chartseries, it can be seen that a long moving average of 105 days would be profitable as worthwhile trades are feasible in exploiting abnormal returns. The strategy has enough time to react to a profitable opportunity in the market.
+The Industrial sector moving averages did not outperform the buy and hold strategy incurring additional costs in the form of transaction costs. The sharpe ratio for the two profitable strategies are both below 0.2 indicating a lack of investor incentive to partake in the investment. The sharpe ratios for the profitable strategies out performed the buy and hold sharpe ratios.
+
+The Final results indicates that moving average analysis is profitable in particular economic sectors using particular types of moving averages. The industrial sector moving analysis generated returns slightly below the buy and hold strategy. The industrial sector results indicate that the weak form efficient hypothesis holds in the industrial sector.
+
+```{r, echo=FALSE, fig.height=4, fig.width=6,fig.align='left'}
+library(quantmod)
+invisible(getSymbols('STXRES',src='google'))
+
+invisible(quantmod::chartSeries(STXRES,name = "JSE RES Top10"))
+invisible(addSMA(n = 105, col = 2))
+
+```
+**Chartseries to show the closing prices for the JSE Top10 Resource companies indice with a 105 day simple moving average.(2007-2017)**
+Given the steep changes in the trend of the JSE Top10 Resource companies Index, multiple trading opportunities could arise from using the past prices.
+<!--![Chartseries to show Simple Moving Averages in the JSE top40](smatop40.png)
 
 ![Chartseries to show Simple Moving Averages in the JSE IND](smaIND.png)
 
@@ -295,23 +355,24 @@ All the Best Exponential Moving Average strategies in the 3 JSE indices outperfo
 
 The Red Line indicates the long moving average in each indice
 
-Given the chart series graphs its seen that there was minimal change in prices throughout the in-sample period resulting in the exponential moving average matching prices quite accurately causing more profit.
+Given the chart series graphs its seen that there was minimal change in prices throughout the in-sample period resulting in the exponential moving average matching prices quite accurately causing more profit.-->
 
 <!-- want to add more empirical results.I still have a lot of additional analysis to perform on all the different statistics--> 
 
-![Table to show the top strategy returns and standard deviations compared to the buy and hold returns and standard deviation and the number of buy and sell trades out-of-sample.](out-of-sample results.png)
+<!-- Old results Found out how to actually plot the data. [Table to show the top strategy returns and standard deviations compared to the buy and hold returns and standard deviation and the number of buy and sell trades out-of-sample.](out-of-sample results.png)
+
 
 The out-of-sample period starts from 1st April 2014 and ends on the 31st of March 2017. Observing the prices using the chart series suggests that prices are more volatile in the out-of-sample period.
 All the strategies failed to beat the buy and hold strategy out-the-sample.
-This could either be due to Moving averages being unable to beat the buy-and-hold strategy or the increased volatility in the out-of-sample period
+This could either be due to Moving averages being unable to beat the buy-and-hold strategy or the increased volatility in the out-of-sample period-->
 
 \newpage
 
 # Conclusion
 
-The best strategies out of sample all failed to beat the buy-and-hold strategy. This follows the weak form Efficient Market Hypothesis. The in-sample results only beat the buy and hold strategy as the moving averages were over optimized to the curves. Moving Averages are useful in determining trends but cannot be utilized to achieve additional profits. An issue that occurred could be the mismatch between out-of-sample and in-sample strategies having different time lengths. In-sample only had 3 years while out of sample had 8 years. This is due to the fact that only a limited amount of data is available.
+The results provided for strategies that are unprofitable are not completely useless. The moving average analysis provided understanding of economic sectors in the form of trends. The two strategies that outperformed the buy and hold strategy provide evidence that sectors in the South African market are weak from inefficient. The Simple Moving average strategy in the JSE Top10 Resource companies index provides evidence to confirm the profitability of moving averages in a particular South African economic sector. 
 
-(Good point Joe, there are many ways a TA can use MAs to provide entries and exits. And they do work best during a strong trend, as when the market is sideways you would get many entries and exits and lose money. That is why the entry you have suggested is a more aggressive entry (as you don't know if it will be the start of an uptrend or still trading in the band ))
+Further analysis should be performed on the JSE Top10 Resource companies index and the JSE Top15 Financial companies index to verify the results in the research paper. This study was confined to only three sectors in the JSE and only used two moving averages. More sectors could be analysed to provide more representative results. More assumptions could be kept such as only analysing one specific sector or avoiding sectors such as Resources sectors which are considered highly volatile. Additional research could be performed to test data extending before 2006 and the moving average strategy function could apply more sequences which would require more time and computational burden.
 
 \newpage
 
