@@ -1,5 +1,5 @@
 ## STXFIN
-#Look at the top 25 FINustrial companies by market cap
+#Look at the top 15 Financial companies index by market cap
 
 #Moving Average Code
 #Research project BUS4053H

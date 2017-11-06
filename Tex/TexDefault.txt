@@ -55,7 +55,7 @@
 \begin{abstract}
 $abstract$
 \noindent
-\\Keywords: JSE RESI, JSE IND, JSE FIN,  Moving Average, chartseries.
+\\Keywords: JSE RES, JSE IND, JSE FIN,  Moving Average, Efficient Market Hypothesis.
 
 \end{abstract}
 \end{titlepage}
